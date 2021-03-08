@@ -5,8 +5,7 @@ import Login from '../src/components/views/Login/Login';
 import Tables from '../src/components/views/Tables/Tables';
 import Kitchen from '../src/components/views/Kitchen/Kitchen';
 import Waiter from '../src/components/views/Waiter/Waiter';
-import { Route, Switch } from 'react-router-dom';
-import { BrowserRouter} from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
   render(){
