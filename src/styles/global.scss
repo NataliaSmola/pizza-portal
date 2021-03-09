@@ -1,1 +1,17 @@
+@import "normalize.scss";
+@import "settings.scss";
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #333;
+  font-family: Arial;
+}
+
+.component {
+  padding: $base-size;
+}

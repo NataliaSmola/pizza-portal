@@ -1,8 +1,2 @@
 @import '../../../styles/settings.scss';
-
-.component {
-  padding: $base-size;
-  text-transform: uppercase;
-  font-size: 15px;
-  color: $text-color;
-}
+@import '../../../styles/global.scss';
