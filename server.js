@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const jsonServer = require('json-server');
-const server = jsonServer.create();
+const server = jsonServer.create({ noCors: true });
 const router = jsonServer.router('build/db/app.json');
 const middlewares = jsonServer.defaults({
   static: 'build',
