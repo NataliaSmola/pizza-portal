@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Tables.module.scss';
 import {Link} from 'react-router-dom';
+import ViewTitle from '../../layout/ViewTitle/ViewTitle';
 
 class Tables extends React.Component {
   render() {
@@ -10,7 +11,7 @@ class Tables extends React.Component {
         <Link to={`${process.env.PUBLIC_URL}/tables/booking/new`} />
         <Link to={`${process.env.PUBLIC_URL}/tables/events/:id`} />
         <Link to={`${process.env.PUBLIC_URL}/tables/events/new`} />
-        <h2>Tables view</h2>
+        <ViewTitle title='Tables' />
       </div>
     );
   }

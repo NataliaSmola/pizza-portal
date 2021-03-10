@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './Kitchen.module.scss';
+import ViewTitle from '../../layout/ViewTitle/ViewTitle';
 
 class Kitchen extends React.Component {
   render() {
     return (
       <div className={styles.component}>
-        <h2>Kitchen view</h2>
+        <ViewTitle title='Kitchen' />
       </div>
     );
   }
