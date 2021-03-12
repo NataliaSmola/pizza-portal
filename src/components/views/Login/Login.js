@@ -4,9 +4,10 @@ import ViewTitle from '../../layout/ViewTitle/ViewTitle';
 
 class Login extends React.Component {
   render() {
+    const title = 'Login';
     return (
       <div className={styles.component}>
-        <ViewTitle title='Login' />
+        <ViewTitle>{title}</ViewTitle>
       </div>
     );
   }

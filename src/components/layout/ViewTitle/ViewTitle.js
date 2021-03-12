@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ViewTitle = ({title}) => (
-  <h2>
-    {title} view
-  </h2>
-);
+class ViewTitle extends React.Component {
+  render() {
+    return (
+      <h2> {this.props.children} view</h2>
+    );
+  }
+}
 
 ViewTitle.propTypes = {
-  title: PropTypes.string,
+  children: PropTypes.string,
 };
 
 export default ViewTitle;
