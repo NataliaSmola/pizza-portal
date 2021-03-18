@@ -14,4 +14,23 @@ h2 {
 
 .component {
   padding: $base-size;
+  min-height: 100vh;
+}
+
+.dataTable {
+  margin-top: 15px;
+  border: 1px solid $table-header-color;
+  text-align: center;
+}
+
+.tableHeader {
+  background: $table-header-color;
+  text-transform: uppercase;
+  border: 1px solid $table-header-color;
+  text-align: center;
+}
+
+.datePicker {
+  margin-right: 20px;
+  margin-bottom: 20px;
 }

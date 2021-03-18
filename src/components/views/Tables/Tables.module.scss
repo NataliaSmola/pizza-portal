@@ -1,2 +1,13 @@
 @import '../../../styles/settings.scss';
 @import '../../../styles/global.scss';
+
+.dataTable {
+  margin-top: 15px;
+  border: 1px solid $table-header-color;
+}
+
+.tableHeader {
+  background: $table-header-color;
+  text-transform: uppercase;
+  border: 1px solid $table-header-color;
+}
