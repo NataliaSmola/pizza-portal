@@ -15,8 +15,6 @@ import {
 } from '@material-ui/pickers';
 import Grid from '@material-ui/core/Grid';
 
-
-
 const NewTable = () => {
   const [date, setDate] = useState(new Date());
   const [people, setPeople] = React.useState('');
@@ -180,7 +178,5 @@ const NewTable = () => {
     </Paper>
   );
 };
-
-
 
 export default NewTable;

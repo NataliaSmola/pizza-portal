@@ -24,12 +24,22 @@ const NewOrder = () => {
     setTable(event.target.value);
   };
 
-  const [amount, setAmount] = React.useState('');
-  const handleChangeAmount = (event) => {
-    setAmount(event.target.value);
+  const [amountPizza, setAmountPizza] = React.useState('');
+  const handleChangeAmountPizza = (event) => {
+    setAmountPizza(event.target.value);
+  };
+  const [amountSalad, setAmountSalad] = React.useState('');
+  const handleChangeAmountSalad = (event) => {
+    setAmountSalad(event.target.value);
+  };
+  const [amountBurger, setAmountBurger] = React.useState('');
+  const handleChangeAmountBurger = (event) => {
+    setAmountBurger(event.target.value);
   };
 
-  const names = [
+  const amountOrder = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+  const pizzaExtras = [
     'extra cheese',
     'extra sauce',
     'basil',
@@ -39,10 +49,31 @@ const NewOrder = () => {
     'pepperoni',
   ];
 
-  const [personName, setPersonName] = React.useState([]);
+  const saladExtras = [
+    'feta',
+    'mozarella',
+    'ham',
+  ];
 
-  const handleChange = (event) => {
-    setPersonName(event.target.value);
+  const burgerExtras = [
+    'meat',
+    'cheese',
+    'fries',
+  ];
+
+  const [pizza, setPizza] = React.useState([]);
+  const handleChangePizza = (event) => {
+    setPizza(event.target.value);
+  };
+
+  const [salad, setSalad] = React.useState([]);
+  const handleChangeSalad = (event) => {
+    setSalad(event.target.value);
+  };
+
+  const [burger, setBurger] = React.useState([]);
+  const handleChangeBurger = (event) => {
+    setBurger(event.target.value);
   };
 
   const ITEM_HEIGHT = 48;
@@ -55,9 +86,6 @@ const NewOrder = () => {
       },
     },
   };
-
-
-
 
   return (
     <Paper className={styles.component}>
@@ -80,15 +108,9 @@ const NewOrder = () => {
             className={styles.input}
           >
             <option aria-label="None" value="" />
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
-            <option value={6}>6</option>
-            <option value={7}>7</option>
-            <option value={8}>8</option>
-            <option value={+9}>+9</option>
+            {amountOrder.map((singleAmount) => (
+              <option key={singleAmount} value={singleAmount}>{singleAmount}</option>
+            ))}
           </Select>
         </FormControl>
         <FormControl variant="outlined">
@@ -113,55 +135,126 @@ const NewOrder = () => {
           Select Menu
         </Typography>
       </Grid>
-      <Grid container justify="center" item xs={12} className={styles.section}>
+      <Grid container justify="center" item xs={12} className={styles.sectionMenu}>
         <FormControlLabel control={<Checkbox name="checkedC" color="primary"/>} label="Pizza" />
-        <FormControl variant="outlined">
-          <InputLabel htmlFor="outlined-age-native-simple" className={styles.input}>Amount</InputLabel>
+        <FormControl variant="outlined" className={styles.amount}>
+          <InputLabel htmlFor="outlined-age-native-simple">Amount</InputLabel>
           <Select
             native
-            value={amount}
-            onChange={handleChangeAmount}
+            value={amountPizza}
+            onChange={handleChangeAmountPizza}
             label="Amount"
-            className={styles.input}
+            className={styles.input_menu}
           >
             <option aria-label="None" value="" />
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
-            <option value={6}>6</option>
-            <option value={7}>7</option>
-            <option value={8}>8</option>
-            <option value={9}>9</option>
+            {amountOrder.map((singleAmount) => (
+              <option key={singleAmount} value={singleAmount}>{singleAmount}</option>
+            ))}
           </Select>
         </FormControl>
-        <FormControl>
+        <FormControl className={styles.checkbox} variant="outlined">
           <InputLabel id="demo-mutiple-checkbox-label">Pizza extras</InputLabel>
           <Select
             labelId="demo-mutiple-checkbox-label"
             id="demo-mutiple-checkbox"
             multiple
-            value={personName}
-            onChange={handleChange}
+            value={pizza}
+            onChange={handleChangePizza}
             input={<Input />}
             renderValue={(selected) => selected.join(', ')}
             MenuProps={MenuProps}
           >
-            {names.map((name) => (
-              <MenuItem key={name} value={name}>
-                <Checkbox checked={personName.indexOf(name) > -1} />
-                <ListItemText primary={name} />
+            {pizzaExtras.map((pizzaExtra) => (
+              <MenuItem key={pizzaExtra} value={pizzaExtra}>
+                <Checkbox checked={pizza.indexOf(pizzaExtra) > -1} />
+                <ListItemText primary={pizzaExtra} />
               </MenuItem>
             ))}
           </Select>
         </FormControl>
-
       </Grid>
-      <Button
-        className={styles.login_button}
-        color="primary"
-        variant="contained">Save</Button>
+      <Grid container justify="center" item xs={12} className={styles.sectionMenu}>
+        <FormControlLabel control={<Checkbox name="checkedC" color="primary"/>} label="Salad" />
+        <FormControl variant="outlined" className={styles.amount}>
+          <InputLabel htmlFor="outlined-age-native-simple">Amount</InputLabel>
+          <Select
+            native
+            value={amountSalad}
+            onChange={handleChangeAmountSalad}
+            label="Amount"
+            className={styles.input_menu}
+          >
+            <option aria-label="None" value="" />
+            {amountOrder.map((singleAmount) => (
+              <option key={singleAmount} value={singleAmount}>{singleAmount}</option>
+            ))}
+          </Select>
+        </FormControl>
+        <FormControl className={styles.checkbox} variant="outlined">
+          <InputLabel id="demo-mutiple-checkbox-label">Add to salad</InputLabel>
+          <Select
+            labelId="demo-mutiple-checkbox-label"
+            id="demo-mutiple-checkbox"
+            multiple
+            value={salad}
+            onChange={handleChangeSalad}
+            input={<Input />}
+            renderValue={(selected) => selected.join(', ')}
+            MenuProps={MenuProps}
+          >
+            {saladExtras.map((saladExtra) => (
+              <MenuItem key={saladExtra} value={saladExtra}>
+                <Checkbox checked={salad.indexOf(saladExtra) > -1} />
+                <ListItemText primary={saladExtra} />
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Grid>
+      <Grid container justify="center" item xs={12} className={styles.sectionMenu}>
+        <FormControlLabel control={<Checkbox name="checkedC" color="primary"/>} label="Burger" />
+        <FormControl variant="outlined" className={styles.amount}>
+          <InputLabel htmlFor="outlined-age-native-simple">Amount</InputLabel>
+          <Select
+            native
+            value={amountBurger}
+            onChange={handleChangeAmountBurger}
+            label="Amount"
+            className={styles.input_menu}
+          >
+            <option aria-label="None" value="" />
+            {amountOrder.map((singleAmount) => (
+              <option key={singleAmount} value={singleAmount}>{singleAmount}</option>
+            ))}
+          </Select>
+        </FormControl>
+        <FormControl className={styles.checkbox} variant="outlined">
+          <InputLabel id="demo-mutiple-checkbox-label">Burger extras</InputLabel>
+          <Select
+            labelId="demo-mutiple-checkbox-label"
+            id="demo-mutiple-checkbox"
+            multiple
+            value={burger}
+            onChange={handleChangeBurger}
+            input={<Input />}
+            renderValue={(selected) => selected.join(', ')}
+            MenuProps={MenuProps}
+          >
+            {burgerExtras.map((burgerExtra) => (
+              <MenuItem key={burgerExtra} value={burgerExtra}>
+                <Checkbox checked={burger.indexOf(burgerExtra) > -1} />
+                <ListItemText primary={burgerExtra} />
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Grid>
+      <Grid container justify="center" className={styles.section}>
+        <Button
+          className={styles.login_button}
+          color="primary"
+          variant="contained">Save</Button>
+      </Grid>
     </Paper>
   );
 };

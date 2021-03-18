@@ -11,9 +11,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 
-
-
-
 const kitchenDemo = [
   {type: 'take away', products: 'pizza, cola', table:'-', order: '123'},
   {type: 'stay in', products: '2x fries, 2x latte', table:'1', order: '124'},

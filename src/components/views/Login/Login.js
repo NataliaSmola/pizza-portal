@@ -5,7 +5,6 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import { NavLink } from 'react-router-dom';
 
-
 class Login extends React.Component {
   render() {
     return (
