@@ -29,7 +29,7 @@ const theme = createMuiTheme({
 class App extends React.Component {
   render(){
     return (
-      <BrowserRouter basename={'/panel'}>
+      <BrowserRouter basename={'/'}>
         <StylesProvider injectFirst>
           <ThemeProvider theme={theme}>
             <MainLayout>
@@ -41,9 +41,9 @@ class App extends React.Component {
                 <Route exact path={process.env.PUBLIC_URL + '/kitchen'} component={Kitchen} />
                 <Route exact path={process.env.PUBLIC_URL + '/waiter/order/new'} component={NewOrder} />
                 <Route exact path={process.env.PUBLIC_URL + '/waiter/order/:id'} component={OrderDetails} />
-                <Route exact path={process.env.PUBLIC_URL + '/tables/booking/id'} component={TableBooked} />
+                <Route exact path={process.env.PUBLIC_URL + '/tables/booking/:id'} component={TableBooked} />
                 <Route exact path={process.env.PUBLIC_URL + '/tables/booking/new'} component={NewTable} />
-                <Route exact path={process.env.PUBLIC_URL + '/tables/events/id'} component={EventBooked} />
+                <Route exact path={process.env.PUBLIC_URL + '/tables/events/:id'} component={EventBooked} />
                 <Route exact path={process.env.PUBLIC_URL + '/tables/events/new'} component={NewEvent} />
               </Switch>
             </MainLayout>

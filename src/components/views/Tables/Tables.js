@@ -21,34 +21,34 @@ import { NavLink } from 'react-router-dom';
 const tableDemo = [
   {hour: '15:00',
     table: [
-      {id:'1', status: 'booked'},
-      {id:'2', status: 'free'},
-      {id:'3', status: 'free'},
-      {id:'4', status: 'booked'},
+      {id:'1', status: 'booked', order: 123},
+      {id:'2', status: 'free', order: null},
+      {id:'3', status: 'free', order: null},
+      {id:'4', status: 'booked', order: 456},
     ],
   },
   {hour: '15:30',
     table: [
-      {id:'1', status: 'booked'},
-      {id:'2', status: 'booked'},
-      {id:'3', status: 'booked'},
-      {id:'4', status: 'booked'},
+      {id:'5', status: 'booked', order: 789},
+      {id:'6', status: 'booked', order: 159},
+      {id:'7', status: 'booked', order: 654},
+      {id:'8', status: 'booked', order: 951},
     ],
   },
   {hour: '16:00',
     table: [
-      {id:'1', status: 'event'},
-      {id:'2', status: 'free'},
-      {id:'3', status: 'free'},
-      {id:'4', status: 'free'},
+      {id:'9', status: 'event', order: 485},
+      {id:'10', status: 'free', order: null},
+      {id:'11', status: 'free', order: null},
+      {id:'12', status: 'free', order: null},
     ],
   },
   {hour: '16:30',
     table: [
-      {id:'1', status: 'booked'},
-      {id:'2', status: 'free'},
-      {id:'3', status: 'booked'},
-      {id:'4', status: 'event'},
+      {id:'13', status: 'booked', order: 356},
+      {id:'14', status: 'free', order: null},
+      {id:'15', status: 'booked', order: 672},
+      {id:'16 ', status: 'event', order: 598},
     ],
   },
 ];
@@ -64,11 +64,11 @@ const renderActions = status => {
       );
     case 'event':
       return (
-        <Button component={NavLink} to={`${process.env.PUBLIC_URL}/tables/events/id`}>Event</Button>
+        <Button>Event</Button>
       );
     case 'booked':
       return (
-        <Button component={NavLink} to={`${process.env.PUBLIC_URL}/tables/booking/id`}>Booked</Button>
+        <Button>Booked</Button>
       );
     default:
       return null;
@@ -77,6 +77,7 @@ const renderActions = status => {
 
 const Tables = () => {
   const [date, setDate] = useState(new Date());
+
   return (
     <Paper className={styles.component}>
       <Typography variant="h4" gutterBottom>
@@ -114,21 +115,27 @@ const Tables = () => {
         <TableHead className={styles.tableHeader}>
           <TableRow>
             <TableCell align='center'>Godzina</TableCell>
-            <TableCell align='center'> Stolik 1</TableCell>
+            <TableCell align='center'>Stolik 1</TableCell>
             <TableCell align='center'>Stolik 2</TableCell>
             <TableCell align='center'>Stolik 3</TableCell>
             <TableCell align='center'>Stolik 4</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {tableDemo.map(row => (
-            <TableRow key={row.id}>
+          {tableDemo.map(tableInfo => (
+            <TableRow key={tableInfo.id}>
               <TableCell component="th" scope="row" className={styles.dataTable}>
-                {row.hour}
+                {tableInfo.hour}
               </TableCell>
-              {row.table.map(table =>(
-                <TableCell key={row.table} component="th" scope="row" className={styles.dataTable}>
-                  {renderActions(table.status)}
+              {tableInfo.table.map(table =>(
+                <TableCell key={tableInfo.table} component="th" scope="row" className={styles.dataTable}>
+                  {table.status ==='booked'
+                    ?
+                    (<Button component={NavLink} to={`${process.env.PUBLIC_URL}/tables/booking/${table.order}`}>
+                      {renderActions(table.status)}</Button>)
+                    :
+                    (<Button component={NavLink} to={`${process.env.PUBLIC_URL}/tables/events/${table.order}`}>
+                      {renderActions(table.status)}</Button>)}
                 </TableCell>
               ))}
             </TableRow>

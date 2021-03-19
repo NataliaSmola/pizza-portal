@@ -136,19 +136,19 @@ const NewTable = () => {
       </Grid>
       <Grid container justify="center" item xs={12} className={styles.section}>
         <TextField
-          id="outlined-basic"
+          id="outlined-basic1"
           label="Name and surname"
           variant="outlined"
           className={styles.input}
         />
         <TextField
-          id="outlined-basic"
+          id="outlined-basic2"
           label="Email"
           variant="outlined"
           className={styles.input}
         />
         <TextField
-          id="outlined-basic"
+          id="outlined-basic3"
           label="Phone number"
           variant="outlined"
           className={styles.input}

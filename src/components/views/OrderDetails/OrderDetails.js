@@ -12,7 +12,7 @@ import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 const tableContent = [
-  {table: '1', order: 'pizza', amount: '2', extras: ['ham, mushrooms'], people:'2', price:'$30'},
+  {id: '1', table: '1', order: 'pizza', amount: '2', extras: ['ham, mushrooms'], people:'2', price:'$30'},
 ];
 
 const OrderDetails = () => {
@@ -34,25 +34,25 @@ const OrderDetails = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {tableContent.map(row => (
-            <TableRow key={row.id}>
+          {tableContent.map(order => (
+            <TableRow key={order.id}>
               <TableCell component="th" scope="row" className={styles.dataTable}>
-                {row.table}
+                {order.table}
               </TableCell>
               <TableCell className={styles.dataTable}>
-                {row.order}
+                {order.order}
               </TableCell>
               <TableCell className={styles.dataTable}>
-                {row.amount}
+                {order.amount}
               </TableCell>
               <TableCell className={styles.dataTable}>
-                {row.extras}
+                {order.extras}
               </TableCell>
               <TableCell className={styles.dataTable}>
-                {row.price}
+                {order.price}
               </TableCell>
               <TableCell className={styles.dataTable}>
-                {row.people}
+                {order.people}
               </TableCell>
             </TableRow>
           ))}

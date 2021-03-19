@@ -11,17 +11,13 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 
-const kitchenDemo = [
-  {type: 'take away', products: 'pizza, cola', table:'-', order: '123'},
-  {type: 'stay in', products: '2x fries, 2x latte', table:'1', order: '124'},
-  {type: 'take away', products: 'salad, fries, cake, water', table:'-', order: '125'},
-  {type: 'stay in', products: '3x cake, 3x black coffee', table:'3', order: '126'},
-  {type: 'stay in', products: 'pizza', table:'2', order: '127'},
+const kitchenOrders = [
+  {id: '1', type: 'take away', products: 'pizza, cola', table:'-', order: '123'},
+  {id: '2', type: 'stay in', products: '2x fries, 2x latte', table:'1', order: '124'},
+  {id: '3', type: 'take away', products: 'salad, fries, cake, water', table:'-', order: '125'},
+  {id: '4', type: 'stay in', products: '3x cake, 3x black coffee', table:'3', order: '126'},
+  {id: '5', type: 'stay in', products: 'pizza', table:'2', order: '127'},
 ];
-
-const handleChange = (event) => {
-  event.target.setAttribute('disabled', true);
-};
 
 const Kitchen = () => {
   return (
@@ -40,21 +36,21 @@ const Kitchen = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {kitchenDemo.map(row => (
-            <TableRow key={row.id}>
+          {kitchenOrders.map(kitchenOrder => (
+            <TableRow key={kitchenOrder.id}>
               <TableCell component="th" scope="row" align='center' className={styles.dataTable}>
-                {row.type}
+                {kitchenOrder.type}
               </TableCell>
               <TableCell align='center' className={styles.dataTable}>
-                {row.products}
+                {kitchenOrder.products}
               </TableCell>
               <TableCell align='center' className={styles.dataTable}>
-                {row.table}
+                {kitchenOrder.table}
               </TableCell>
               <TableCell align='center' className={styles.dataTable}>
-                {row.order && (
-                  <Button to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
-                    {row.order}
+                {kitchenOrder.order && (
+                  <Button to={`${process.env.PUBLIC_URL}/waiter/order/${kitchenOrder.order}`}>
+                    {kitchenOrder.order}
                   </Button>
                 )}
               </TableCell>
@@ -62,7 +58,6 @@ const Kitchen = () => {
                 <FormControlLabel
                   control={
                     <Checkbox
-                      onChange={handleChange}
                       name="checkedB"
                       color="primary"
                     />

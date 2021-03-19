@@ -23,9 +23,9 @@ const todaysOrders = [
 ];
 
 const todaysStatistics = [
-  {type: 'take away', quantity: '35' },
-  {type: 'stay in', quantity: '20' },
-  {type: 'event', quantity: '1' },
+  {id: '1', type: 'take away', quantity: '35' },
+  {id: '2', type: 'stay in', quantity: '20' },
+  {id: '3', type: 'event', quantity: '1' },
 ];
 
 class Homepage extends React.Component {
@@ -43,13 +43,13 @@ class Homepage extends React.Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {todaysStatistics.map(row => (
-              <TableRow key={row.id}>
+            {todaysStatistics.map(todaysStatistic => (
+              <TableRow key={todaysStatistic.id}>
                 <TableCell component="th" scope="row" className={styles.dataTable}>
-                  {row.type}
+                  {todaysStatistic.type}
                 </TableCell>
                 <TableCell className={styles.dataTable}>
-                  {row.quantity}
+                  {todaysStatistic.quantity}
                 </TableCell>
               </TableRow>
             ))}
@@ -69,19 +69,19 @@ class Homepage extends React.Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {todaysOrders.map(row => (
-              <TableRow key={row.id}>
+            {todaysOrders.map(todaysOrder => (
+              <TableRow key={todaysOrder.id}>
                 <TableCell component="th" scope="row" className={styles.dataTable}>
-                  {row.time}
+                  {todaysOrder.time}
                 </TableCell>
                 <TableCell className={styles.dataTable}>
-                  {row.people}
+                  {todaysOrder.people}
                 </TableCell>
                 <TableCell className={styles.dataTable}>
-                  {row.type}
+                  {todaysOrder.type}
                 </TableCell>
                 <TableCell className={styles.dataTable}>
-                  {row.order}
+                  {todaysOrder.order}
                 </TableCell>
               </TableRow>
             ))}
