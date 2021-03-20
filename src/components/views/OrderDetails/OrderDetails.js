@@ -25,12 +25,12 @@ const OrderDetails = () => {
       <Table>
         <TableHead className={styles.tableHeader}>
           <TableRow>
-            <TableCell align='center'>Table number</TableCell>
-            <TableCell align='center'>Order</TableCell>
-            <TableCell align='center'>Amount</TableCell>
-            <TableCell align='center'>Extras</TableCell>
-            <TableCell align='center'>Price</TableCell>
-            <TableCell align='center'>Guests</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Table number</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Order</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Amount</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Extras</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Price</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Guests</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

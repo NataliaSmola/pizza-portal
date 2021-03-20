@@ -19,7 +19,8 @@ import { NavLink } from 'react-router-dom';
 
 
 const tableDemo = [
-  {hour: '15:00',
+  {id:'1',
+    hour: '15:00',
     table: [
       {id:'1', status: 'booked', order: 123},
       {id:'2', status: 'free', order: null},
@@ -27,7 +28,8 @@ const tableDemo = [
       {id:'4', status: 'booked', order: 456},
     ],
   },
-  {hour: '15:30',
+  {id:'2',
+    hour: '15:30',
     table: [
       {id:'5', status: 'booked', order: 789},
       {id:'6', status: 'booked', order: 159},
@@ -35,7 +37,8 @@ const tableDemo = [
       {id:'8', status: 'booked', order: 951},
     ],
   },
-  {hour: '16:00',
+  {id:'3',
+    hour: '16:00',
     table: [
       {id:'9', status: 'event', order: 485},
       {id:'10', status: 'free', order: null},
@@ -43,7 +46,8 @@ const tableDemo = [
       {id:'12', status: 'free', order: null},
     ],
   },
-  {hour: '16:30',
+  {id:'4',
+    hour: '16:30',
     table: [
       {id:'13', status: 'booked', order: 356},
       {id:'14', status: 'free', order: null},
@@ -52,28 +56,6 @@ const tableDemo = [
     ],
   },
 ];
-
-const renderActions = status => {
-  switch (status) {
-    case 'free':
-      return (
-        <>
-          <Button component={NavLink} to={`${process.env.PUBLIC_URL}/tables/booking/new`}>Add new booking</Button>
-          <Button component={NavLink} to={`${process.env.PUBLIC_URL}/tables/events/new`}>Add new event</Button>
-        </>
-      );
-    case 'event':
-      return (
-        <Button>Event</Button>
-      );
-    case 'booked':
-      return (
-        <Button>Booked</Button>
-      );
-    default:
-      return null;
-  }
-};
 
 const Tables = () => {
   const [date, setDate] = useState(new Date());
@@ -114,11 +96,11 @@ const Tables = () => {
       <Table>
         <TableHead className={styles.tableHeader}>
           <TableRow>
-            <TableCell align='center'>Godzina</TableCell>
-            <TableCell align='center'>Stolik 1</TableCell>
-            <TableCell align='center'>Stolik 2</TableCell>
-            <TableCell align='center'>Stolik 3</TableCell>
-            <TableCell align='center'>Stolik 4</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Godzina</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Stolik 1</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Stolik 2</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Stolik 3</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Stolik 4</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -128,14 +110,32 @@ const Tables = () => {
                 {tableInfo.hour}
               </TableCell>
               {tableInfo.table.map(table =>(
-                <TableCell key={tableInfo.table} component="th" scope="row" className={styles.dataTable}>
+                <TableCell key={table.id} component="th" scope="row" className={styles.dataTable}>
                   {table.status ==='booked'
                     ?
-                    (<Button component={NavLink} to={`${process.env.PUBLIC_URL}/tables/booking/${table.order}`}>
-                      {renderActions(table.status)}</Button>)
-                    :
-                    (<Button component={NavLink} to={`${process.env.PUBLIC_URL}/tables/events/${table.order}`}>
-                      {renderActions(table.status)}</Button>)}
+                    (<Button
+                      color="primary"
+                      variant="outlined"
+                      component={NavLink}
+                      to={`${process.env.PUBLIC_URL}/tables/booking/${table.order}`}>
+                      booked</Button>)
+                    : table.status === 'event' ?
+                      (<Button
+                        color="primary"
+                        variant="outlined"
+                        component={NavLink}
+                        to={`${process.env.PUBLIC_URL}/tables/events/${table.order}`}>
+                      event</Button>)
+                      :
+                      table.status === 'free' ?
+                        <Button
+                          color="primary"
+                          variant="contained"
+                          component={NavLink}
+                          to={`${process.env.PUBLIC_URL}/table/available`}>
+                          Available</Button>
+                        : 'null'
+                  }
                 </TableCell>
               ))}
             </TableRow>

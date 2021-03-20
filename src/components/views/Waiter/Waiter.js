@@ -25,12 +25,18 @@ const renderActions = status => {
       return (
         <>
           <Button >thinking</Button>
-          <Button component={NavLink} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>new order</Button>
+          <Button
+            color="primary"
+            variant="outlined"
+            component={NavLink} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>new order</Button>
         </>
       );
     case 'thinking':
       return (
-        <Button component={NavLink} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>new order</Button>
+        <Button
+          color="primary"
+          variant="outlined"
+          component={NavLink} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>new order</Button>
       );
     case 'ordered':
       return (
@@ -58,10 +64,10 @@ const Waiter = () => (
     <Table>
       <TableHead className={styles.tableHeader}>
         <TableRow>
-          <TableCell align='center'>Table</TableCell>
-          <TableCell align='center'>Status</TableCell>
-          <TableCell align='center'>Order</TableCell>
-          <TableCell align='center'>Action</TableCell>
+          <TableCell className={styles.tableHeadElement} align='center'>Table</TableCell>
+          <TableCell className={styles.tableHeadElement} align='center'>Status</TableCell>
+          <TableCell className={styles.tableHeadElement} align='center'>Order</TableCell>
+          <TableCell className={styles.tableHeadElement} align='center'>Action</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -75,7 +81,11 @@ const Waiter = () => (
             </TableCell>
             <TableCell className={styles.dataTable}>
               {row.order && (
-                <Button component={NavLink} to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
+                <Button
+                  color="primary"
+                  variant="outlined"
+                  component={NavLink}
+                  to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
                   {row.order}
                 </Button>
               )}

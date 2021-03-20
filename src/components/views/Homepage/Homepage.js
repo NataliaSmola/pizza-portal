@@ -8,6 +8,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
+import { NavLink } from 'react-router-dom';
+
 
 
 const todaysOrders = [
@@ -38,8 +41,8 @@ class Homepage extends React.Component {
         <Table>
           <TableHead className={styles.tableHeader}>
             <TableRow>
-              <TableCell align='center'>Typ zamówienia</TableCell>
-              <TableCell align='center'>Ilość</TableCell>
+              <TableCell className={styles.tableHeadElement} align='center'>Typ zamówienia</TableCell>
+              <TableCell className={styles.tableHeadElement} align='center'>Ilość</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -62,10 +65,10 @@ class Homepage extends React.Component {
         <Table>
           <TableHead className={styles.tableHeader}>
             <TableRow>
-              <TableCell align='center'>Godzina</TableCell>
-              <TableCell align='center'>Ilość osób</TableCell>
-              <TableCell align='center'>Rodzaj zamówienia</TableCell>
-              <TableCell align='center'>Numer zamówienia</TableCell>
+              <TableCell className={styles.tableHeadElement} align='center'>Godzina</TableCell>
+              <TableCell className={styles.tableHeadElement} align='center'>Ilość osób</TableCell>
+              <TableCell className={styles.tableHeadElement} align='center'>Rodzaj zamówienia</TableCell>
+              <TableCell className={styles.tableHeadElement} align='center'>Numer zamówienia</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -81,7 +84,11 @@ class Homepage extends React.Component {
                   {todaysOrder.type}
                 </TableCell>
                 <TableCell className={styles.dataTable}>
-                  {todaysOrder.order}
+                  <Button
+                    color="primary"
+                    variant="outlined"
+                    component={NavLink} to={`${process.env.PUBLIC_URL}/tables/booking/${todaysOrder.order}`}>
+                    {todaysOrder.order}</Button>
                 </TableCell>
               </TableRow>
             ))}

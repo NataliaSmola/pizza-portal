@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './EventBooked.module.scss';
+import styles from './EventDetails.module.scss';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -16,7 +16,7 @@ const eventContent = [
   {id: '1', hour: '17:30', people: '2', duration:'2', phone:'123456789', email: 'lala@gmail.com'},
 ];
 
-const EventBooked = () => {
+const EventDetails = () => {
   const {id} = useParams();
   return (
     <Paper className={styles.component}>
@@ -26,11 +26,11 @@ const EventBooked = () => {
       <Table>
         <TableHead className={styles.tableHeader}>
           <TableRow>
-            <TableCell align='center'>Godzina</TableCell>
-            <TableCell align='center'>Ilość osób</TableCell>
-            <TableCell align='center'>Czas</TableCell>
-            <TableCell align='center'>Telefon kontaktowy</TableCell>
-            <TableCell align='center'>Email</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Godzina</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Ilość osób</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Czas</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Telefon kontaktowy</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Email</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -70,4 +70,4 @@ const EventBooked = () => {
   );
 };
 
-export default EventBooked;
+export default EventDetails;

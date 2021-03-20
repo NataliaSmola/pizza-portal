@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './NewTable.module.scss';
+import styles from './NewBooking.module.scss';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -15,7 +15,7 @@ import {
 } from '@material-ui/pickers';
 import Grid from '@material-ui/core/Grid';
 
-const NewTable = () => {
+const NewBooking = () => {
   const [date, setDate] = useState(new Date());
   const [people, setPeople] = React.useState('');
   const handleChangePeople = (event) => {
@@ -179,4 +179,4 @@ const NewTable = () => {
   );
 };
 
-export default NewTable;
+export default NewBooking;

@@ -10,6 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
+import { NavLink } from 'react-router-dom';
 
 const kitchenOrders = [
   {id: '1', type: 'take away', products: 'pizza, cola', table:'-', order: '123'},
@@ -28,11 +29,11 @@ const Kitchen = () => {
       <Table>
         <TableHead className={styles.tableHeader}>
           <TableRow>
-            <TableCell align='center'>Typ zamówienia</TableCell>
-            <TableCell align='center'>Produkty</TableCell>
-            <TableCell align='center'>Numer stolika</TableCell>
-            <TableCell align='center'>Numer zamówienia</TableCell>
-            <TableCell align='center'>Oznacz jako zrobione</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Typ zamówienia</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Produkty</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Numer stolika</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Numer zamówienia</TableCell>
+            <TableCell className={styles.tableHeadElement} align='center'>Oznacz jako zrobione</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -49,7 +50,7 @@ const Kitchen = () => {
               </TableCell>
               <TableCell align='center' className={styles.dataTable}>
                 {kitchenOrder.order && (
-                  <Button to={`${process.env.PUBLIC_URL}/waiter/order/${kitchenOrder.order}`}>
+                  <Button component={NavLink} variant="outlined" color="primary" to={`${process.env.PUBLIC_URL}/waiter/order/${kitchenOrder.order}`}>
                     {kitchenOrder.order}
                   </Button>
                 )}
