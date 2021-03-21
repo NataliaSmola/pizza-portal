@@ -6,9 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 const tableContent = [
@@ -19,7 +17,7 @@ const OrderDetails = () => {
   const {id} = useParams();
   return (
     <Paper className={styles.component}>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom className={styles.header}>
         Order {id} details
       </Typography>
       <Table>
@@ -58,13 +56,6 @@ const OrderDetails = () => {
           ))}
         </TableBody>
       </Table>
-      <div className={styles.button_box}>
-        <Button
-          className={styles.button}
-          color="primary"
-          variant="contained"
-          component={NavLink} to={`${process.env.PUBLIC_URL}/waiter`}>Back</Button>
-      </div>
     </Paper>
   );
 };

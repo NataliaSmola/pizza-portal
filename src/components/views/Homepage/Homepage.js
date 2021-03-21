@@ -7,11 +7,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
-import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import { NavLink } from 'react-router-dom';
-
-
 
 const todaysOrders = [
   {id: '1', type: 'take away', people: '-', time: '10:00', order: 123},
@@ -35,7 +32,7 @@ class Homepage extends React.Component {
   render() {
     return (
       <Paper className={styles.component}>
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h4" gutterBottom className={styles.header}>
           Statystyki
         </Typography>
         <Table>
@@ -58,8 +55,7 @@ class Homepage extends React.Component {
             ))}
           </TableBody>
         </Table>
-        <Toolbar />
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h4" gutterBottom className={styles.header}>
           Dzisiejsze eventy i wydarzenia
         </Typography>
         <Table>
@@ -87,7 +83,7 @@ class Homepage extends React.Component {
                   <Button
                     color="primary"
                     variant="outlined"
-                    component={NavLink} to={`${process.env.PUBLIC_URL}/tables/booking/${todaysOrder.order}`}>
+                    component={NavLink} to={`${process.env.PUBLIC_URL}/waiter/order/${todaysOrder.order}`}>
                     {todaysOrder.order}</Button>
                 </TableCell>
               </TableRow>

@@ -14,6 +14,8 @@ import {
   KeyboardTimePicker,
 } from '@material-ui/pickers';
 import Grid from '@material-ui/core/Grid';
+import { NavLink } from 'react-router-dom';
+
 
 const NewBooking = () => {
   const [date, setDate] = useState(new Date());
@@ -33,7 +35,7 @@ const NewBooking = () => {
   };
   return (
     <Paper className={styles.component}>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom className={styles.header}>
         Table reservation
       </Typography>
       <Grid container justify="center">
@@ -174,6 +176,12 @@ const NewBooking = () => {
           className={styles.login_button}
           color="primary"
           variant="contained">Save</Button>
+        <Button
+          className={styles.login_button}
+          color="primary"
+          component={NavLink}
+          variant="contained"
+          to={`${process.env.PUBLIC_URL}/table/available`}>Back</Button>
       </Grid>
     </Paper>
   );

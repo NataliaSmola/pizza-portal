@@ -20,7 +20,7 @@ const EventDetails = () => {
   const {id} = useParams();
   return (
     <Paper className={styles.component}>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom className={styles.header}>
         Event order {id} details
       </Typography>
       <Table>

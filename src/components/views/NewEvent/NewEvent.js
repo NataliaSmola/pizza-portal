@@ -14,6 +14,8 @@ import {
   KeyboardTimePicker,
 } from '@material-ui/pickers';
 import Grid from '@material-ui/core/Grid';
+import { NavLink } from 'react-router-dom';
+
 
 const NewEvent = () => {
   const [date, setDate] = useState(new Date());
@@ -70,7 +72,7 @@ const NewEvent = () => {
         </Grid>
       </MuiPickersUtilsProvider>
       <Grid container justify="center">
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" gutterBottom className={styles.header}>
           Event details
         </Typography>
       </Grid>
@@ -174,6 +176,12 @@ const NewEvent = () => {
           className={styles.login_button}
           color="primary"
           variant="contained">Save</Button>
+        <Button
+          className={styles.login_button}
+          color="primary"
+          component={NavLink}
+          variant="contained"
+          to={`${process.env.PUBLIC_URL}/table/available`}>Back</Button>
       </Grid>
     </Paper>
   );

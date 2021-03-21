@@ -89,7 +89,7 @@ const NewOrder = () => {
 
   return (
     <Paper className={styles.component}>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom className={styles.header}>
         Add new order
       </Typography>
       <Grid container justify="center">

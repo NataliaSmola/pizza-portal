@@ -5,13 +5,10 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { NavLink } from 'react-router-dom';
 
-
-
-
 const AvailableTables = () => {
   return (
     <Paper className={styles.component}>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom className={styles.header}>
         Select type of booking you want to add
       </Typography>
       <div className={styles.button_box}>
