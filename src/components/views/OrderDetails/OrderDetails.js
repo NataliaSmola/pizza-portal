@@ -8,6 +8,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { useParams } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import { useHistory } from 'react-router-dom';
 
 const tableContent = [
   {id: '1', table: '1', order: 'pizza', amount: '2', extras: ['ham, mushrooms'], people:'2', price:'$30'},
@@ -15,6 +17,7 @@ const tableContent = [
 
 const OrderDetails = () => {
   const {id} = useParams();
+  let history = useHistory();
   return (
     <Paper className={styles.component}>
       <Typography variant="h4" gutterBottom className={styles.header}>
@@ -56,6 +59,12 @@ const OrderDetails = () => {
           ))}
         </TableBody>
       </Table>
+      <div className={styles.button_box}>
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={() => history.goBack()}>Go Back</Button>
+      </div>
     </Paper>
   );
 };
