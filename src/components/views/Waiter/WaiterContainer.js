@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Waiter from './Waiter';
-import { getAll, fetchFromAPI, getLoadingState, fetchChangeStatus } from '../../../redux/tablesRedux';
+import { getAll, fetchFromAPI, getLoadingState, fetchChangedStatus } from '../../../redux/tablesRedux';
 
 const mapStateToProps = (state) => ({
   tables: getAll(state),
@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchTables: () => dispatch(fetchFromAPI()),
-  fetchStatus: (id, newStatus) => dispatch(fetchChangeStatus(id, newStatus)),
+  fetchStatus: (id, newStatus) => dispatch(fetchChangedStatus(id, newStatus)),
 
 });
 
